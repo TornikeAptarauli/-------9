@@ -1,0 +1,236 @@
+body {
+  background-color: antiquewhite;
+  font-family: "Courier New", Courier, monospace;
+  margin: 0;
+}
+body {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main"
+    "sidebar"
+    "footer";
+}
+
+* {
+  box-sizing: border-box;
+}
+h1 {
+  font-size: clamp(1.75rem, 5vw, 3rem); /* მინიმუმი 559px , მაქსიმუმი 961 */
+  margin: 0;
+}
+h2 {
+  font-size: 1.75rem;
+  text-align: center;
+}
+header {
+  grid-area: header;
+  background-color: rgb(250, 222, 185);
+  width: 100%;
+
+  padding: 1rem;
+
+  display: grid;
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+header ul {
+  display: flex;
+  list-style-type: none;
+
+  color: cadetblue;
+  font-weight: bold;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+header ul li {
+  width: 15%;
+  font-size: 0.8rem;
+}
+header ul li {
+  min-height: 2.75rem;
+}
+main {
+  background-color: rgb(255, 199, 125);
+  /* min-width: 90%; */
+  grid-area: main;
+}
+aside {
+  grid-area: sidebar;
+  background-color: #fc9da0;
+
+  height: 500px;
+}
+
+.InfoSection {
+  border: 3px solid rgb(56, 41, 1);
+  border-radius: 10px;
+  height: auto;
+  margin: 0.8rem 0rem;
+
+  padding: clamp(1rem, 4vw, 3rem);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+.InfoSectionLeftContainer {
+  background-color: #80ff88;
+  width: 60%;
+  border: 1px solid black;
+  font-size: 1rem;
+  border-radius: 7px;
+}
+.InfoSectionRightContainer {
+  background-color: #80b7ff;
+  border: 1px solid black;
+  border-radius: 7px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+/* რადგან em უყურებს მშობელ ელემენტის font-size თუ არ აქვს უყურებს მის მშობელ ელემენტს და ა.შ. */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+.Titlep {
+  font-weight: bold;
+  text-align: center;
+}
+.PopularCourses {
+  background-color: #cfcfcf;
+  padding: clamp(1rem, 4vw, 3rem);
+  margin: 0 auto;
+
+  width: min(100% - 2rem, 1100px);
+}
+.PopularCourses ul {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: 1fr;
+
+  gap: 5rem;
+  width: 100%;
+  min-height: 700px;
+}
+.PopularCourses ul li {
+  width: 80%;
+  background-color: #999999;
+  border: 3px solid #fc9da0;
+  border-style: double;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.33rem;
+  justify-content: space-between;
+  text-decoration: none;
+}
+.PopularCourses ul li img {
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+.WidthImg {
+  /* width: 600px !important; */
+  /* max-width: none !important; */
+}
+.GrowLi {
+  width: 100% !important;
+  /* width: 100vw !important; */
+}
+
+.FAQSection {
+  padding: clamp(1rem, 4vw, 3rem);
+  margin: 0.8rem 0;
+  height: auto;
+}
+a {
+  font-size: 15px;
+  padding: 0.6em 1.2em;
+}
+footer {
+  background-color: rgb(117, 101, 82);
+  grid-area: footer;
+}
+footer p {
+  margin: 0;
+  color: #cfcfcf;
+  font-weight: bold;
+  margin: 0 auto;
+  font-size: 1rem;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th,
+td {
+  border: 1px solid #000000;
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+thead th {
+  background: #ffffff;
+}
+
+.CardContainer {
+  display: grid;
+  background-color: #80ff88;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(220px, 1fr)
+  ); /*auto-fit ცარიელ ადგილს არ ტოვებს და card გაწელავს რომ შეავსოს ეს ადგილი, auto-fill ცარიელ ადგილს ტოვებს */
+  /* grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); */
+  /* grid-template-columns: 1fr 2fr 1fr; fr- ნიშნავს თავისუფალი ადგილის გადანაწილების ფარდობია ანუ 2fr 2ჯერ მეტ ადგილს დაიკავებს ვიდრე 1fr */
+  /* 200px 1fr 1fr
+    1fr 3fr 1fr; */
+  gap: 1rem;
+}
+.CardContainer div {
+  height: 100px;
+  width: 100%;
+  background-color: #80b7ff;
+}
+
+.card7--featuered {
+  grid-column: span 2;
+}
+.card2--Offer {
+  grid-row: span 2;
+}
+.Hero {
+  display: grid;
+  justify-items: center !important;
+  align-items: center !important;
+}
+
+@media (min-width: 768px) {
+  body {
+    grid-template-columns: 220px 1fr;
+    grid-template-areas:
+      "header header"
+      "sidebar main"
+      "footer footer";
+  }
+
+  .PopularCourses ul {
+    grid-template-columns: 3fr 2fr;
+  }
+  header {
+    display: flex;
+  }
+  header ul {
+    flex-direction: row;
+  }
+}
+
+/* flexbox გამოვიყენე ნავიგაციისათვის რადგან მისი გადალაგება არ მიწევს და ერთ ხაზზე ადვილად ალაგებს ნივთებს, */
+/* grid გამოვიყენე გვერდის სტრუქტურისათვის რადგან ადვილია რამოდენიმე card-ის ან სტრუქტურის გადალაგება როდესაც ეკრანის ზომა იცვლება */
